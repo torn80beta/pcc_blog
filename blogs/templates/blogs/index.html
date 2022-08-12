@@ -10,14 +10,17 @@
 
     <br>
 
-    <p>Topics:</p>
+    <p>Posts:</p>
+
+    <a href="{% url 'blogs:new_post' %}">Add new post:</a>
 
     <ul>
         {% for post in posts %}
             <li>
-                <p align="center"><b>__________________________________________________</b></p>
                 <p><b>{{ post.date_added|date:'M d, Y H:i' }}</b></p>
                 <p>{{ post.text|linebreaks }}</p>
+                <p align="left"><b>__________________________________________________</b></p>
+                <br>
             </li>
         {% empty %}
             <li>No posts have been added yet</li>
