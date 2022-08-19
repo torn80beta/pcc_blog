@@ -13,3 +13,13 @@ class BlogPost(models.Model):
         """Возвращает строковое представление модели"""
         return self.title
 
+
+class Entry(models.Model):
+    post = models.ForeignKey(BlogPost, on_delete=models.CASCADE)
+    name = models.CharField(max_length=200)
+    def __str__(self):
+        return f"{self.post} - {self.name}"
+
+    class Meta:
+        verbose_name_plural = "Непонятная хрень"
+

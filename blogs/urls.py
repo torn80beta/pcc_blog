@@ -8,5 +8,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     # New post page
     path('new_post/', views.new_post, name='new_post'),
+    # Single post page
+    path('posts/<int:post_id>/', views.post, name='post'),
 ]
 

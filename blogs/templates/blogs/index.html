@@ -6,7 +6,7 @@
         <title>Blog</title>
     </head>
     <body>
-    <p>Hello! This is the home page of my first blog! Nice to see you!</p>
+    <p>Hello! This is my personal blog! Nice to see you!</p>
 
     <br>
 
@@ -17,7 +17,8 @@
     <ul>
         {% for post in posts %}
             <li>
-                <p><b>{{ post.date_added|date:'M d, Y H:i' }}</b></p>
+                <a href="{% url 'blogs:post' post.id %}"><b>{{ post.date_added|date:'M d, Y H:i' }}</b></a>
+                <p></p>
                 <p>{{ post.text|linebreaks }}</p>
                 <p align="left"><b>__________________________________________________</b></p>
                 <br>

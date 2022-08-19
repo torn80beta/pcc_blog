@@ -12,6 +12,15 @@ def index(request):
     return render(request, 'blogs/index.html', context)
 
 
+def post(request, post_id):
+    # Single post page
+    post = BlogPost.objects.get(id=post_id)
+    entries = post.entry_set
+    text = post.text
+    context = {'post': post, 'entries': entries, 'text': text}
+    return render(request, 'blogs/post.html/', context)
+
+
 def new_post(request):
     """New post definition"""
     if request.method != 'POST':

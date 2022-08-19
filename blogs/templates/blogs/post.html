@@ -1,0 +1,16 @@
+{% extends 'blogs/base.html' %}
+
+{% block content %}
+
+    <p align="left"><b>_____________</b></p>
+    <p>{{ text }}</p>
+    <p align="left"><b>_____________</b></p>
+    <p>Comments:</p>
+        <ul>
+            <li>
+                <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
+                <p>{{ entry.text|linebreaks }}</p>
+            </li>
+        </ul>
+
+{% endblock content %}
