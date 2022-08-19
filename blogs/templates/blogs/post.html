@@ -7,10 +7,14 @@
     <p align="left"><b>_____________</b></p>
     <p>Comments:</p>
         <ul>
-            <li>
-                <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
-                <p>{{ entry.text|linebreaks }}</p>
-            </li>
+            {% for entry in entries %}
+                <li>
+                    <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
+                    <p>{{ entry.text|linebreaks }}</p>
+                </li>
+            {% empty %}
+                <li>No comments have been added yet</li>
+            {% endfor %}
         </ul>
 
 {% endblock content %}
