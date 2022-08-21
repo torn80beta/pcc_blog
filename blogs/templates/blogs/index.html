@@ -20,6 +20,9 @@
                 <a href="{% url 'blogs:post' post.id %}"><b>{{ post.date_added|date:'M d, Y H:i' }}</b></a>
                 <p></p>
                 <p>{{ post.text|linebreaks }}</p>
+                <p>
+                    <a href="{% url 'blogs:edit_entry' post.id %}">Edit post</a>
+                </p>
                 <p align="left"><b>__________________________________________________</b></p>
                 <br>
             </li>

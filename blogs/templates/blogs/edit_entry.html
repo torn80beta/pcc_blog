@@ -2,8 +2,9 @@
 
 {% block content %}
 
-    <p><a href="{% url 'blogs:post' post.id %}">{{ post }}</a> </p>
-    <p>Edit post</p>
+    <p>{{ post }}</p>
+    <p align="left"><b>_____________</b></p>
+    <p>Edit post:</p>
 
     <form action="{% url 'blogs:edit_entry' entry.id %}" method="post">
         {% csrf_token %}

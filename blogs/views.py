@@ -37,3 +37,21 @@ def new_post(request):
     return render(request, 'blogs/new_post.html', context)
 
 
+def edit_entry(request, post_id):
+    """Edit existing entry"""
+    entry = BlogPost.objects.get(id=post_id)
+    post = entry.text
+
+    if request.method != 'POST':
+        # Form filling with the existing data
+        form = PostForm(instance=entry)
+    else:
+        # Process data in case of POST request
+        form = PostForm(instance=entry, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('blogs:post', post_id=entry.id)
+
+    context = {'entry': entry, 'post': post, 'form': form}
+    return render(request, 'blogs/edit_entry.html', context)
+
