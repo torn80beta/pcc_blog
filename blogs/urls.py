@@ -11,6 +11,6 @@ urlpatterns = [
     # Single post page
     path('posts/<int:post_id>/', views.post, name='post'),
     # Edit page
-    path('edit_entry/<int:post_id>', views.edit_entry, name='edit_entry'),
+    path('edit_post/<int:post_id>', views.edit_post, name='edit_post'),
 ]
 
